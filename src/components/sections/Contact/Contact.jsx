@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Globe2, Mail, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
+import { Mail, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
 import './Contact.css'
 
 const RAW_API_URL = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'
@@ -77,12 +77,7 @@ function Contact() {
       </div>
 
       <div className="contact-wrapper section-shell">
-        <div className="world-map" data-reveal>
-          <Globe2 />
-          <span />
-          <span />
-          <span />
-        </div>
+        <div className="contact-brand-spacer" aria-hidden="true" />
 
         <form className="contact-form" data-reveal onSubmit={handleSubmit}>
         <p className="eyebrow">
