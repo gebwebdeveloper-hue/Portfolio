@@ -140,10 +140,16 @@ function WhyChooseUs() {
           Ready to build something exceptional?
         </h3>
 
-        <button className="why-btn">
+        <a
+          href="https://wa.me/918258892262?text=Hello%20GenWeb%20Technologies!%20I%20am%20ready%20to%20build%20something%20exceptional%20and%20would%20love%20to%20work%20together%20on%20my%20project."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="why-btn"
+          aria-label="Contact GenWeb Technologies on WhatsApp to work together"
+        >
           Let's Work Together
           <ArrowRight size={18} />
-        </button>
+        </a>
       </motion.div>
     </section>
   )
