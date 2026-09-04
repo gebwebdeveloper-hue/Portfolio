@@ -5,15 +5,15 @@ import './Testimonials.css'
 const testimonials = [
   {
     id: 1,
-    name: 'Riya Mehta',
-    role: 'Founder, CartNest',
-    service: 'E-Commerce Platform',
+    name: 'Parthib Chakraborty',
+    role: 'Founder, EditIV Studio',
+    service: 'Agency Platform & Client Portal',
     quote:
-      'GenWeb translated our rough idea into a website that felt bigger than our company on launch day. The design was premium, but the process stayed practical, transparent, and remarkably fast.',
+      'GenWeb engineered an end-to-end platform for EditIV that streamlined our entire client workflow. The secure OTP client portal, live milestone tracking, and automated invoicing gave our agency an elite, enterprise-grade polish.',
     rating: 5,
-    highlight: '+140% Launch Conversions',
-    initials: 'RM',
-    avatarColor: 'linear-gradient(135deg, #ff8c00, #ff5f6d)',
+    highlight: 'OTP Client Portal & Invoicing',
+    initials: 'PC',
+    avatarColor: 'linear-gradient(135deg, #10b981, #059669)',
   },
   {
     id: 2,
