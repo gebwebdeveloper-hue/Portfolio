@@ -4,15 +4,18 @@ import { X, ExternalLink, CheckCircle2, ArrowRight } from 'lucide-react'
 import './PortfolioModal.css'
 
 function PortfolioModal({ project, onClose }) {
-  // Prevent background scroll when modal is open
+  // Prevent background scroll and pause Lenis while modal is open
   useEffect(() => {
     if (project) {
       document.body.style.overflow = 'hidden'
+      window.lenis?.stop()
     } else {
       document.body.style.overflow = ''
+      window.lenis?.start()
     }
     return () => {
       document.body.style.overflow = ''
+      window.lenis?.start()
     }
   }, [project])
 
@@ -25,6 +28,9 @@ function PortfolioModal({ project, onClose }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
+          data-lenis-prevent="true"
+          data-lenis-prevent-wheel="true"
+          data-lenis-prevent-touch="true"
         >
           <motion.div
             className="portfolio-modal-container"
@@ -33,7 +39,11 @@ function PortfolioModal({ project, onClose }) {
             exit={{ opacity: 0, scale: 0.94, y: 24 }}
             transition={{ type: 'spring', damping: 26, stiffness: 320 }}
             onClick={(e) => e.stopPropagation()}
+            onWheel={(e) => e.stopPropagation()}
             style={{ '--accent': project.color }}
+            data-lenis-prevent="true"
+            data-lenis-prevent-wheel="true"
+            data-lenis-prevent-touch="true"
           >
             {/* Close Button */}
             <button
@@ -62,7 +72,13 @@ function PortfolioModal({ project, onClose }) {
               <p className="modal-subtitle">{project.subtitle}</p>
             </div>
 
-            <div className="modal-body-scroll">
+            <div
+              className="modal-body-scroll"
+              data-lenis-prevent="true"
+              data-lenis-prevent-wheel="true"
+              data-lenis-prevent-touch="true"
+              onWheel={(e) => e.stopPropagation()}
+            >
               {/* Browser Preview Showcase */}
               <div className="modal-preview-frame">
                 <div className="modal-browser-bar">

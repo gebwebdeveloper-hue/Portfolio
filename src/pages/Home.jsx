@@ -27,6 +27,8 @@ function Home() {
 
   useEffect(() => {
     const lenis = new Lenis({ lerp: 0.08, wheelMultiplier: 0.9 })
+    window.lenis = lenis
+
     const raf = (time) => {
       lenis.raf(time)
       requestAnimationFrame(raf)
@@ -38,6 +40,7 @@ function Home() {
     return () => {
       cancelAnimationFrame(frame)
       lenis.destroy()
+      window.lenis = null
     }
   }, [])
 
