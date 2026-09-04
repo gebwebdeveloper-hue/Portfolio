@@ -1,166 +1,533 @@
-
-
-/* ==========================================================================
-   SITE HEADER & NAVIGATION
-   ========================================================================== */
+/* ==========================================
+   PREMIUM NAVBAR
+========================================== */
 
 .site-header {
   position: fixed;
   top: 22px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 50;
+  z-index: 999;
 
   width: min(1180px, calc(100% - 32px));
+  height: 72px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
 
-  padding: 12px 20px;
+  padding: 0 18px;
 
-  border-radius: 999px;
-  border: 1px solid rgba(255, 140, 0, 0.22);
+  border-radius: 22px;
 
-  background: rgba(12, 12, 16, 0.88);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.015)
+    ),
+    rgba(10, 10, 14, 0.82);
+
+  border: 1px solid rgba(255, 153, 0, 0.2);
+
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 
   box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.65),
-    0 0 25px rgba(255, 140, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 15px 50px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
-  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    top 0.4s ease,
+    transform 0.4s ease,
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+
+  overflow: visible;
 }
 
-.site-header:hover {
-  transform: translateX(-50%) translateY(-2px);
-  border-color: rgba(255, 140, 0, 0.4);
+
+/* Animated top glow */
+
+.site-header::before {
+  content: "";
+  position: absolute;
+
+  top: -1px;
+  left: 12%;
+  width: 25%;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ff9500,
+    #ffc46b,
+    transparent
+  );
+
+  filter: blur(1px);
+
+  animation: navbarGlow 4s linear infinite;
+}
+
+
+@keyframes navbarGlow {
+  0% {
+    left: -20%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+
+/* Scroll State */
+
+.site-header.scrolled {
+  top: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0.01)
+    ),
+    rgba(8, 8, 10, 0.94);
+
+  border-color: rgba(255, 153, 0, 0.32);
+
   box-shadow:
-    0 14px 45px rgba(0, 0, 0, 0.75),
-    0 0 35px rgba(255, 140, 0, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    0 20px 60px rgba(0, 0, 0, 0.7),
+    0 0 30px rgba(255, 140, 0, 0.08);
 }
 
-/* Brand */
+
+/* ==========================================
+   BRAND
+========================================== */
+
 .brand {
-  display: inline-flex;
+  position: relative;
+
+  display: flex;
   align-items: center;
-  gap: 10px;
+
   text-decoration: none;
+
+  z-index: 2;
 }
+
 
 .brand img {
   display: block;
+
+  height: 42px;
   width: auto;
-  height: 40px;
-  max-width: 210px;
+
   object-fit: contain;
-  transition: transform 0.3s ease, filter 0.3s ease;
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
 }
+
 
 .brand:hover img {
-  filter: drop-shadow(0 0 10px rgba(255, 140, 0, 0.6));
-  transform: scale(1.02);
+  transform: scale(1.08) rotate(-2deg);
+
+  filter:
+    drop-shadow(0 0 8px rgba(255, 153, 0, 0.7))
+    drop-shadow(0 0 18px rgba(255, 153, 0, 0.25));
 }
 
-/* Nav Links */
+
+/* Small logo pulse */
+
+.brand::after {
+  content: "";
+
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+
+  right: -8px;
+  top: 5px;
+
+  border-radius: 50%;
+
+  background: #ff9500;
+
+  box-shadow:
+    0 0 10px #ff9500,
+    0 0 20px rgba(255, 149, 0, 0.5);
+
+  animation: pulseDot 2s infinite;
+}
+
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.6);
+    opacity: 0.5;
+  }
+}
+
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
 .site-header nav {
   display: flex;
   align-items: center;
-  gap: 6px;
+
+  gap: 5px;
+
+  padding: 5px;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid rgba(255, 255, 255, 0.04);
 }
+
 
 .site-header nav a {
   position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 17px;
+
+  border-radius: 10px;
+
   text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 999px;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.92rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+
+  color: rgba(255, 255, 255, 0.6);
+
+  font-size: 0.88rem;
+  font-weight: 600;
+
+  letter-spacing: 0.02em;
+
+  overflow: hidden;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease;
 }
+
+
+/* Text stays above effects */
+
+.site-header nav a span {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Hover gradient */
+
+.site-header nav a::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 153, 0, 0.18),
+    rgba(255, 190, 90, 0.06)
+  );
+
+  opacity: 0;
+
+  transform: scale(0.8);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+
+  border-radius: inherit;
+}
+
+
+/* Bottom active line */
+
+.site-header nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 4px;
+
+  width: 0;
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    90deg,
+    #ff7a00,
+    #ffc15c
+  );
+
+  box-shadow:
+    0 0 8px #ff9500,
+    0 0 15px rgba(255, 149, 0, 0.5);
+
+  transition: width 0.3s ease;
+}
+
+
+/* Hover */
 
 .site-header nav a:hover {
   color: #ffffff;
-  background: rgba(255, 140, 0, 0.12);
-  box-shadow: 0 0 16px rgba(255, 140, 0, 0.18);
+
+  transform: translateY(-2px);
 }
 
-.site-header nav a.active {
-  color: #ffffff;
-  background: rgba(255, 140, 0, 0.18);
-  box-shadow: 0 0 20px rgba(255, 140, 0, 0.22);
+
+.site-header nav a:hover::before {
+  opacity: 1;
+  transform: scale(1);
 }
 
-/* Mobile Toggle */
+
+.site-header nav a:hover::after {
+  width: 35%;
+}
+
+
+
+
+/* ==========================================
+   MENU BUTTON
+========================================== */
+
 .icon-button {
-  display: inline-grid;
-  width: 40px;
-  height: 40px;
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 50%;
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.06);
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(255, 153, 0, 0.2);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 153, 0, 0.12),
+      rgba(255, 255, 255, 0.04)
+    );
+
+  color: #ffffff;
+
   cursor: pointer;
-  transition: all 0.2s ease;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
+
 
 .icon-button:hover {
+  transform: rotate(8deg) scale(1.05);
+
   background: rgba(255, 140, 0, 0.2);
-  border-color: rgba(255, 140, 0, 0.4);
+
+  box-shadow:
+    0 0 20px rgba(255, 140, 0, 0.25);
 }
 
-.menu {
-  display: none;
+
+.menu-icon {
+  display: flex;
+
+  transition: transform 0.3s ease;
 }
 
-/* Responsive */
+
+/* ==========================================
+   MOBILE
+========================================== */
+
 @media (max-width: 760px) {
+
   .site-header {
-    top: 14px;
-    padding: 10px 16px;
-    border-radius: 20px;
+    top: 12px;
+
+    width: calc(100% - 24px);
+
+    height: 64px;
+
+    padding: 0 14px;
+
+    border-radius: 18px;
   }
+
 
   .site-header nav {
     position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
+
+    top: calc(100% + 12px);
+
     left: 0;
-    display: none;
-    padding: 12px;
-    border: 1px solid rgba(255, 140, 0, 0.2);
-    border-radius: 18px;
-    background: rgba(12, 12, 16, 0.96);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    right: 0;
+
+    display: flex;
+
     flex-direction: column;
+
     align-items: stretch;
-    gap: 4px;
+
+    gap: 6px;
+
+    padding: 10px;
+
+    border-radius: 18px;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.06),
+        rgba(255, 255, 255, 0.01)
+      ),
+      rgba(10, 10, 14, 0.97);
+
+    border: 1px solid rgba(255, 140, 0, 0.2);
+
+    box-shadow:
+      0 20px 50px rgba(0, 0, 0, 0.65);
+
+    backdrop-filter: blur(25px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(-15px) scale(0.97);
+
+    pointer-events: none;
+
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease;
   }
 
-  .site-header nav a {
-    text-align: center;
-    padding: 10px 14px;
-  }
 
   .site-header nav.open {
-    display: flex;
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0) scale(1);
+
+    pointer-events: auto;
   }
+
+
+  .site-header nav a {
+    justify-content: flex-start;
+
+    padding: 13px 16px;
+
+    font-size: 0.95rem;
+
+    border-radius: 12px;
+
+    animation: navItemIn 0.4s ease backwards;
+  }
+
+
+  .site-header nav.open a:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+
+  .site-header nav.open a:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .site-header nav.open a:nth-child(3) {
+    animation-delay: 0.15s;
+  }
+
+  .site-header nav.open a:nth-child(4) {
+    animation-delay: 0.2s;
+  }
+
+  .site-header nav.open a:nth-child(5) {
+    animation-delay: 0.25s;
+  }
+
 
   .menu {
     display: inline-grid;
   }
 
+
   .brand img {
-    height: 34px;
-    max-width: 170px;
+    height: 36px;
   }
+
+
+  .brand::after {
+    display: none;
+  }
+}
+
+
+/* Mobile stagger animation */
+
+@keyframes navItemIn {
+  from {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
 }
