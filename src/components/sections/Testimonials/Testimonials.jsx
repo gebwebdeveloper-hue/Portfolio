@@ -29,15 +29,15 @@ const testimonials = [
   },
   {
     id: 3,
-    name: 'Arjun Rao',
-    role: 'Marketing Lead, Nexora Labs',
-    service: 'SaaS Landing Page & Branding',
+    name: 'Dr. Deep Datta',
+    role: 'Founder, 32SignatureSmilez',
+    service: 'Clinical Web App & Booking System',
     quote:
-      'Their landing page gave our campaign a sharper story, cleaner funnel, and an unforgettable first impression. Our user acquisition jumped by 42% in the very first month.',
+      'GenWeb transformed our clinic online with an automated booking workflow, lightning-fast media delivery, and an intuitive admin panel. Patient appointments doubled, and our daily operations are smoother than ever.',
     rating: 5,
-    highlight: '+42% Funnel Conversion',
-    initials: 'AR',
-    avatarColor: 'linear-gradient(135deg, #f59e0b, #ef4444)',
+    highlight: 'Automated Booking & SEO Dominance',
+    initials: 'DD',
+    avatarColor: 'linear-gradient(135deg, #0284c7, #0ea5e9)',
   },
 ]
 
