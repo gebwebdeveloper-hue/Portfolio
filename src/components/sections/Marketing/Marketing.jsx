@@ -122,10 +122,16 @@ function Marketing() {
 
         </div>
 
-        <button className="marketing-btn">
+        <a
+          href="https://wa.me/918258892262?text=Hello%20GenWeb%20Technologies!%20I%20would%20like%20to%20inquire%20about%20growing%20my%20brand%20with%20your%20Digital%20Marketing%20%26%20Campaign%20services."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="marketing-btn"
+          aria-label="Inquire about brand growth and digital marketing on WhatsApp"
+        >
           Grow My Brand
           <ArrowRight size={18} />
-        </button>
+        </a>
 
       </motion.div>
 

@@ -1,201 +1,560 @@
+/* ==========================================================================
+   SOCIAL MEDIA MARKETING SECTION
+   ========================================================================== */
+
 .marketing-section {
   position: relative;
   width: 100%;
-  padding: 120px 0;
+  min-height: 100vh;
+  padding: 130px 0;
   overflow: hidden;
+  isolation: isolate;
 }
 
-.marketing-content {
-  position: relative;
-  z-index: 3;
-  display: grid;
-  grid-template-columns: .95fr 1fr;
-  gap: clamp(40px, 7vw, 100px);
-  align-items: center;
-  width: 100%;
-}
+/* ==========================================================================
+   BACKGROUND VIDEO
+   ========================================================================== */
 
-/* ===========================
-   VIDEO BACKGROUND
-=========================== */
 .marketing-bg-video-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
+  inset: 0;
+  z-index: 0;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .marketing-bg-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.45;
-  filter: saturate(0.85) contrast(1.1) brightness(0.9);
+  opacity: 0.42;
+  filter:
+    saturate(0.75)
+    contrast(1.12)
+    brightness(0.7);
+  transform: scale(1.03);
 }
+
+/* Premium cinematic overlay */
 
 .marketing-bg-overlay {
   position: absolute;
   inset: 0;
-  background: 
-    linear-gradient(to bottom, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.4) 50%, rgba(5, 5, 5, 0.95) 100%),
-    radial-gradient(circle at 50% 50%, transparent 30%, rgba(5, 5, 5, 0.8) 100%);
-  z-index: 2;
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 6, 8, 0.96) 0%,
+      rgba(5, 6, 8, 0.82) 30%,
+      rgba(5, 6, 8, 0.42) 58%,
+      rgba(5, 6, 8, 0.72) 100%
+    ),
+
+    linear-gradient(
+      180deg,
+      rgba(5, 6, 8, 0.96) 0%,
+      transparent 22%,
+      transparent 75%,
+      rgba(5, 6, 8, 0.97) 100%
+    ),
+
+    radial-gradient(
+      circle at 72% 48%,
+      rgba(255, 140, 0, 0.12),
+      transparent 32%
+    );
 }
 
+/* ==========================================================================
+   AMBIENT BACKGROUND EFFECTS
+   ========================================================================== */
 
-/* ===========================
-   LEFT SIDE
-=========================== */
+.marketing-section::before {
+  content: "";
 
-.section-copy h2 span {
-  background: linear-gradient(
-    120deg,
-    #ff8c00 0%,
-    #ffb347 25%,
-    #ff5f6d 50%,
-    #ffb347 75%,
-    #ff8c00 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: marketingSpanGradient 5s linear infinite;
+  position: absolute;
+
+  width: 650px;
+  height: 650px;
+
+  right: -280px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 140, 0, 0.12),
+      transparent 68%
+    );
+
+  filter: blur(50px);
+
+  pointer-events: none;
+
+  z-index: 1;
+
+  animation: ambientPulse 8s ease-in-out infinite;
+}
+
+.marketing-section::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 1;
+
+  opacity: 0.22;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent,
+      black 45%,
+      transparent
+    );
+}
+
+@keyframes ambientPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translateY(-50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: translateY(-50%) scale(1.12);
+  }
+}
+
+/* ==========================================================================
+   MAIN CONTENT
+   ========================================================================== */
+
+.marketing-content {
+  position: relative;
+  z-index: 3;
+
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(480px, 1fr);
+
+  gap: clamp(50px, 7vw, 110px);
+
+  align-items: center;
+
+  width: 100%;
+}
+
+/* ==========================================================================
+   LEFT CONTENT
+   ========================================================================== */
+
+.marketing-section .section-copy {
+  position: relative;
+  max-width: 680px;
+}
+
+.marketing-section .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 20px;
+
+  color: var(--orange);
+
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.marketing-section .eyebrow svg {
+  filter:
+    drop-shadow(0 0 8px rgba(255, 140, 0, 0.6));
+}
+
+/* ==========================================================================
+   HEADING
+   ========================================================================== */
+
+.marketing-section .section-copy h2 {
+  margin: 0 0 24px;
+
+  max-width: 680px;
+
+  color: #ffffff;
+
+  font-size: clamp(3rem, 5vw, 5.2rem);
+  font-weight: 850;
+
+  line-height: 1.02;
+
+  letter-spacing: -0.045em;
+
+  text-shadow:
+    0 0 30px rgba(255, 255, 255, 0.08);
+}
+
+.marketing-section .section-copy h2 span {
   display: inline-block;
+
+  background:
+    linear-gradient(
+      110deg,
+      #ff7a00 0%,
+      #ff9f1c 20%,
+      #ffd18a 42%,
+      #ff8c00 58%,
+      #ff5f6d 78%,
+      #ff8c00 100%
+    );
+
+  background-size: 250% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  color: transparent;
+
+  filter:
+    drop-shadow(0 0 20px rgba(255, 140, 0, 0.25));
+
+  animation: marketingGradientMove 6s linear infinite;
 }
 
-@keyframes marketingSpanGradient {
+@keyframes marketingGradientMove {
   0% {
     background-position: 0% center;
   }
+
   100% {
-    background-position: 200% center;
+    background-position: 250% center;
   }
 }
 
+/* ==========================================================================
+   DESCRIPTION
+   ========================================================================== */
 
-.section-copy p {
-  max-width: 580px;
+.marketing-section .section-copy > p:not(.eyebrow) {
+  max-width: 620px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 1.08rem;
+  line-height: 1.85;
+
+  letter-spacing: 0.005em;
 }
+
+/* ==========================================================================
+   FEATURES
+   ========================================================================== */
 
 .marketing-features {
   display: grid;
-  gap: 16px;
-  margin: 36px 0;
+  gap: 12px;
+
+  margin: 38px 0 28px;
+
+  max-width: 570px;
 }
 
 .marketing-features div {
+  position: relative;
+
   display: flex;
   align-items: center;
-  gap: 14px;
+
+  gap: 15px;
 
   padding: 16px 20px;
 
-  border-radius: 14px;
+  overflow: hidden;
 
-  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 15px;
 
-  background: rgba(255,255,255,.03);
+  border:
+    1px solid rgba(255, 255, 255, 0.09);
 
-  transition: .35s ease;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.015)
+    );
+
+  backdrop-filter: blur(14px);
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-weight: 500;
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Left orange line */
+
+.marketing-features div::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 22%;
+  bottom: 22%;
+
+  width: 2px;
+
+  border-radius: 10px;
+
+  background: var(--orange);
+
+  opacity: 0;
+
+  transition: 0.3s ease;
+}
+
+/* Shine effect */
+
+.marketing-features div::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 150%;
+
+  left: -120px;
+  top: -25%;
+
+  transform: rotate(20deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.08),
+      transparent
+    );
+
+  transition: left 0.65s ease;
 }
 
 .marketing-features div:hover {
   transform: translateX(10px);
 
-  border-color: rgba(255,140,0,.35);
+  border-color:
+    rgba(255, 140, 0, 0.4);
 
-  background: rgba(255,140,0,.08);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 140, 0, 0.12),
+      rgba(255, 255, 255, 0.025)
+    );
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.25),
+    0 0 25px rgba(255, 140, 0, 0.08);
+}
+
+.marketing-features div:hover::before {
+  opacity: 1;
+}
+
+.marketing-features div:hover::after {
+  left: 120%;
 }
 
 .marketing-features svg {
+  position: relative;
+
+  z-index: 2;
+
   color: var(--orange);
+
+  flex-shrink: 0;
+
+  filter:
+    drop-shadow(0 0 7px rgba(255, 140, 0, 0.45));
 }
 
+/* ==========================================================================
+   CTA BUTTON
+   ========================================================================== */
+
 .marketing-btn {
+  position: relative;
+
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
 
-  margin-top: 18px;
+  gap: 12px;
+
+  margin-top: 12px;
 
   padding: 16px 30px;
+
+  overflow: hidden;
 
   border: none;
   border-radius: 14px;
 
   cursor: pointer;
+  text-decoration: none;
 
-  font-size: 1rem;
-  font-weight: 700;
+  color: #17110a;
 
-  color: #111;
+  font-size: 0.98rem;
+  font-weight: 800;
 
-  background: linear-gradient(
-    90deg,
-    #ff8c00,
-    #ffb347
-  );
+  background:
+    linear-gradient(
+      100deg,
+      #ff8400,
+      #ffad32,
+      #ffd084
+    );
 
-  transition: .3s ease;
+  box-shadow:
+    0 10px 30px rgba(255, 140, 0, 0.18);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.marketing-btn::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  transform: translateX(-110%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+
+  transition: transform 0.6s ease;
 }
 
 .marketing-btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
 
   box-shadow:
-  0 15px 40px rgba(255,140,0,.35);
+    0 18px 45px rgba(255, 140, 0, 0.35),
+    0 0 25px rgba(255, 140, 0, 0.15);
+}
+
+.marketing-btn:hover::before {
+  transform: translateX(110%);
 }
 
 .marketing-btn svg {
-  transition: .3s;
+  position: relative;
+
+  transition: transform 0.3s ease;
 }
 
 .marketing-btn:hover svg {
   transform: translateX(5px);
 }
 
-/* ===========================
-   RIGHT SIDE
-=========================== */
+/* ==========================================================================
+   ANALYTICS CLOUD
+   ========================================================================== */
 
 .analytics-cloud {
   position: relative;
+
   min-height: 640px;
+
+  width: 100%;
 }
 
-/* orange glow */
+/* Central ambient glow */
 
 .dashboard-glow {
   position: absolute;
 
-  width: 380px;
-  height: 380px;
+  width: 440px;
+  height: 440px;
 
   left: 50%;
   top: 45%;
 
   transform: translate(-50%, -50%);
 
+  border-radius: 50%;
+
   background:
     radial-gradient(
       circle,
-      rgba(255,140,0,.22),
+      rgba(255, 140, 0, 0.24) 0%,
+      rgba(255, 140, 0, 0.1) 30%,
       transparent 70%
     );
 
-  filter: blur(70px);
+  filter: blur(45px);
 
   z-index: 0;
+
+  animation: dashboardPulse 6s ease-in-out infinite;
 }
 
-/* ===========================
-   CARD
-=========================== */
+@keyframes dashboardPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+/* ==========================================================================
+   ANALYTICS CARDS
+   ========================================================================== */
 
 .analytics-card {
   position: absolute;
@@ -204,78 +563,156 @@
   flex-direction: column;
   justify-content: center;
 
-  gap: 14px;
+  gap: 13px;
 
-  width: 210px;
-  height: 160px;
+  width: 215px;
+  height: 170px;
 
   padding: 26px;
 
-  border-radius: 22px;
+  overflow: hidden;
 
-  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 24px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
 
   background:
+    linear-gradient(
+      145deg,
+      rgba(28, 29, 33, 0.82),
+      rgba(12, 13, 16, 0.68)
+    );
 
-  linear-gradient(
-    180deg,
-    rgba(255,255,255,.06),
-    rgba(255,255,255,.02)
-  );
-
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
 
   box-shadow:
-  0 25px 60px rgba(0,0,0,.35);
+    0 25px 60px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
   transition:
-  .35s ease;
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 
   z-index: 2;
 
-  animation: floatCard 7s ease-in-out infinite;
+  animation:
+    floatCard 7s ease-in-out infinite;
+}
+
+/* Top border glow */
+
+.analytics-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 15%;
+  right: 15%;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 180, 70, 0.7),
+      transparent
+    );
+
+  opacity: 0.5;
+}
+
+/* Hover glow */
+
+.analytics-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  top: -100px;
+  right: -100px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 140, 0, 0.18),
+      transparent 70%
+    );
+
+  opacity: 0;
+
+  transition: opacity 0.4s ease;
 }
 
 .analytics-card:hover {
-  border-color: rgba(255,140,0,.4);
+  border-color:
+    rgba(255, 140, 0, 0.45);
 
   box-shadow:
-  0 20px 60px rgba(255,140,0,.18);
+    0 25px 70px rgba(0, 0, 0, 0.45),
+    0 0 35px rgba(255, 140, 0, 0.12);
 }
 
-/* large */
+.analytics-card:hover::after {
+  opacity: 1;
+}
+
+/* Large Card */
 
 .analytics-card.large {
-  width: 270px;
-  height: 205px;
+  width: 292px;
+  height: 215px;
 }
 
-/* positions */
+/* ==========================================================================
+   CARD POSITIONS
+   ========================================================================== */
 
 .analytics-card.reach-card {
   top: 0;
   left: 0;
+
+  animation-delay: -0.5s;
 }
 
 .analytics-card.top-right {
-  top: 82px;
+  top: 95px;
   right: 0;
-  animation-delay: -.8s;
+
+  animation-delay: -1.5s;
 }
 
 .analytics-card.bottom-left {
-  bottom: 220px;
-  left: 42px;
-  animation-delay: -3.5s;
+  bottom: 205px;
+  left: 48px;
+
+  animation-delay: -3.8s;
 }
 
 .analytics-card.bottom-right {
   right: 0;
-  bottom: 200px;
-  animation-delay: -2.2s;
+  bottom: 190px;
+
+  animation-delay: -2.7s;
 }
 
+/* ==========================================================================
+   METRIC ICON
+   ========================================================================== */
+
 .metric-icon {
+  position: relative;
+
+  z-index: 3;
+
   width: 54px;
   height: 54px;
 
@@ -283,135 +720,293 @@
   align-items: center;
   justify-content: center;
 
-  border-radius: 14px;
+  border-radius: 16px;
 
   color: var(--orange);
 
-  background: rgba(255,140,0,.1);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 140, 0, 0.16),
+      rgba(255, 140, 0, 0.05)
+    );
 
-  border: 1px solid rgba(255,140,0,.18);
+  border:
+    1px solid rgba(255, 140, 0, 0.25);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 18px rgba(255, 140, 0, 0.08);
 }
 
 .analytics-card strong {
-  font-size: 2.3rem;
-  font-weight: 800;
+  position: relative;
 
-  color: white;
+  z-index: 3;
+
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 2.35rem;
+  font-weight: 850;
+
+  line-height: 1;
+  letter-spacing: -0.03em;
 }
 
 .analytics-card span {
-  color: rgba(255,255,255,.65);
+  position: relative;
+
+  z-index: 3;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 0.96rem;
 
   line-height: 1.5;
 }
 
-/* ===========================
+/* ==========================================================================
    SUMMARY CARD
-=========================== */
+   ========================================================================== */
 
 .summary-card {
   position: absolute;
 
   left: 50%;
-  bottom: -10px;
+  bottom: -8px;
 
   transform: translateX(-50%);
 
-  width: 270px;
+  width: 285px;
 
-  padding: 24px;
+  padding: 26px;
 
-  border-radius: 20px;
+  overflow: hidden;
 
-  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 22px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
 
   background:
+    linear-gradient(
+      145deg,
+      rgba(28, 29, 33, 0.9),
+      rgba(12, 13, 16, 0.78)
+    );
 
-  linear-gradient(
-    180deg,
-    rgba(255,255,255,.06),
-    rgba(255,255,255,.02)
-  );
+  backdrop-filter: blur(22px);
 
-  backdrop-filter: blur(20px);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.4);
 
   text-align: center;
 
-  z-index: 3;
+  z-index: 4;
+}
+
+.summary-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 20%;
+  right: 20%;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--orange),
+      transparent
+    );
 }
 
 .summary-card small {
-  color: rgba(255,255,255,.5);
+  display: block;
+
+  color: rgba(255, 255, 255, 0.48);
+
+  font-size: 0.72rem;
 
   text-transform: uppercase;
 
-  letter-spacing: .08em;
+  letter-spacing: 0.12em;
 }
 
 .summary-card h3 {
-  margin: 10px 0;
+  margin: 12px 0 8px;
 
-  font-size: 3rem;
+  font-size: 3.2rem;
+  font-weight: 850;
+
+  line-height: 1;
 
   color: var(--orange);
+
+  text-shadow:
+    0 0 25px rgba(255, 140, 0, 0.25);
 }
 
 .summary-card p {
-  color: rgba(255,255,255,.65);
+  margin: 0;
 
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 0.88rem;
+
+  line-height: 1.65;
 }
 
-/* ===========================
-   FLOAT ANIMATION
-=========================== */
+/* ==========================================================================
+   FLOAT ANIMATIONS
+   ========================================================================== */
 
 @keyframes floatCard {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
 
-  0% {
+  50% {
+    transform: translateY(-13px);
+  }
+}
+
+/* Different subtle animation */
+
+.analytics-card.reach-card {
+  animation-name: floatCardOne;
+}
+
+.analytics-card.top-right {
+  animation-name: floatCardTwo;
+}
+
+.analytics-card.bottom-left {
+  animation-name: floatCardThree;
+}
+
+.analytics-card.bottom-right {
+  animation-name: floatCardTwo;
+}
+
+@keyframes floatCardOne {
+  0%,
+  100% {
     transform: translateY(0px);
   }
 
   50% {
     transform: translateY(-14px);
   }
+}
 
+@keyframes floatCardTwo {
+  0%,
   100% {
     transform: translateY(0px);
   }
 
+  50% {
+    transform: translateY(12px);
+  }
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
+@keyframes floatCardThree {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
 
-@media (max-width:1100px) {
+  50% {
+    transform: translateY(-9px);
+  }
+}
 
+/* ==========================================================================
+   TABLET
+   ========================================================================== */
+
+@media (max-width: 1150px) {
   .marketing-content {
     grid-template-columns: 1fr;
     gap: 80px;
   }
 
-  .analytics-cloud {
-    min-height: 700px;
+  .marketing-section .section-copy {
+    max-width: 750px;
   }
 
+  .analytics-cloud {
+    max-width: 700px;
+    width: 100%;
+
+    margin: 0 auto;
+
+    min-height: 650px;
+  }
 }
 
-@media (max-width:768px) {
+/* ==========================================================================
+   MOBILE
+   ========================================================================== */
 
+@media (max-width: 768px) {
   .marketing-section {
-    padding: 80px 0;
+    min-height: auto;
+
+    padding: 90px 0;
   }
 
-  .analytics-cloud {
+  .marketing-bg-video {
+    opacity: 0.22;
+  }
 
+  .marketing-bg-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5, 6, 8, 0.94),
+        rgba(5, 6, 8, 0.75),
+        rgba(5, 6, 8, 0.96)
+      );
+  }
+
+  .marketing-content {
+    gap: 55px;
+  }
+
+  .marketing-section .section-copy h2 {
+    font-size: clamp(2.7rem, 12vw, 4rem);
+  }
+
+  .marketing-section .section-copy > p:not(.eyebrow) {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .marketing-features {
+    margin: 30px 0 25px;
+  }
+
+  /* Switch analytics layout to normal cards */
+
+  .analytics-cloud {
     display: grid;
 
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
 
     min-height: auto;
+
+    max-width: 100%;
   }
 
   .dashboard-glow {
@@ -420,43 +1015,112 @@
 
   .analytics-card,
   .analytics-card.large,
-  .summary-card {
+  .analytics-card.reach-card,
+  .analytics-card.top-right,
+  .analytics-card.bottom-left,
+  .analytics-card.bottom-right {
+    position: relative;
 
-    position: static;
-
-    transform: none;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
 
     width: 100%;
     height: auto;
+    min-height: 190px;
+
+    padding: 22px;
 
     animation: none;
   }
 
-  .summary-card h3 {
-    font-size: 2.5rem;
-  }
+  .summary-card {
+    position: relative;
 
+    grid-column: span 2;
+
+    left: auto;
+    bottom: auto;
+
+    width: 100%;
+
+    transform: none;
+  }
 }
 
-@media (max-width:480px) {
+/* ==========================================================================
+   SMALL MOBILE
+   ========================================================================== */
 
-  .marketing-btn {
-    width: 100%;
-    justify-content: center;
+@media (max-width: 520px) {
+  .marketing-section {
+    padding: 75px 0;
+  }
+
+  .marketing-section .eyebrow {
+    font-size: 0.72rem;
+  }
+
+  .marketing-section .section-copy h2 {
+    letter-spacing: -0.035em;
   }
 
   .marketing-features div {
     padding: 14px 16px;
+
+    font-size: 0.92rem;
   }
 
-  .analytics-card {
-    padding: 22px;
+  .marketing-features div:hover {
+    transform: translateX(5px);
+  }
+
+  .marketing-btn {
+    width: 100%;
+
+    padding: 17px 22px;
+  }
+
+  .analytics-cloud {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-card,
+  .analytics-card.large,
+  .analytics-card.reach-card,
+  .analytics-card.top-right,
+  .analytics-card.bottom-left,
+  .analytics-card.bottom-right {
+    min-height: 165px;
+  }
+
+  .summary-card {
+    grid-column: span 1;
   }
 
   .analytics-card strong {
-    font-size: 2rem;
+    font-size: 2.15rem;
   }
 
+  .summary-card h3 {
+    font-size: 2.8rem;
+  }
 }
 
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
 
+@media (prefers-reduced-motion: reduce) {
+  .analytics-card,
+  .dashboard-glow,
+  .marketing-section::before,
+  .marketing-section .section-copy h2 span {
+    animation: none !important;
+  }
+
+  * {
+    scroll-behavior: auto !important;
+  }
+}
