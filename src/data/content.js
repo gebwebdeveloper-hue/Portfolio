@@ -239,7 +239,7 @@ export const processSteps = [
 
 export const heroStats = [
   ['94%', 'Client Satisfaction'],
-  ['60+', 'Projects Delivered'],
+  ['10+', 'Projects Delivered'],
   ['24/7', 'Support Available'],
 ]
 
