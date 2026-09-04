@@ -1,0 +1,461 @@
+.process-section {
+  position: relative;
+  padding: 120px 0;
+}
+
+/* ======================================
+   Heading
+====================================== */
+
+.section-heading h2 span {
+  color: var(--orange);
+}
+
+.section-description {
+  max-width: 700px;
+  margin-top: 28px;
+  color: rgba(255,255,255,.68);
+  line-height: 1.8;
+}
+
+/* ======================================
+   Timeline Line
+====================================== */
+
+.timeline-line {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  margin: 70px 0 60px;
+
+  background: rgba(255,255,255,.08);
+
+  overflow: hidden;
+}
+
+.timeline-line::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    var(--orange),
+    transparent
+  );
+
+  animation: processGlow 5s linear infinite;
+
+}
+
+/* ======================================
+   Grid
+====================================== */
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 28px;
+}
+
+/* ======================================
+   Card
+====================================== */
+
+.process-card {
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 340px;
+
+  padding: 30px;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  background:
+
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,.06),
+    rgba(255,255,255,.02)
+  );
+
+  backdrop-filter: blur(18px);
+
+  transition:
+  .35s ease;
+
+}
+
+.process-card::before{
+
+content:"";
+
+position:absolute;
+
+width:260px;
+height:260px;
+
+right:-100px;
+top:-100px;
+
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(255,140,0,.22),
+
+transparent 70%
+
+);
+
+opacity:0;
+
+transition:.4s;
+
+}
+
+.process-card:hover::before{
+
+opacity:1;
+
+}
+
+.process-card:hover{
+
+border-color:rgba(255,140,0,.35);
+
+box-shadow:
+
+0 25px 60px rgba(255,140,0,.18);
+
+}
+
+/* ======================================
+   Number
+====================================== */
+
+.step-number{
+
+position:absolute;
+
+right:24px;
+top:18px;
+
+font-size:90px;
+
+font-weight:900;
+
+line-height:1;
+
+opacity:.04;
+
+color:white;
+
+pointer-events:none;
+
+}
+
+/* ======================================
+   Icon
+====================================== */
+
+.step-icon{
+
+width:60px;
+height:60px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:18px;
+
+background:rgba(255,140,0,.1);
+
+border:1px solid rgba(255,140,0,.18);
+
+color:var(--orange);
+
+margin-bottom:30px;
+
+transition:.35s;
+
+position:relative;
+z-index:2;
+
+}
+
+.process-card:hover .step-icon{
+
+transform:rotate(-8deg) scale(1.08);
+
+background:rgba(255,140,0,.18);
+
+}
+
+/* ======================================
+   Text
+====================================== */
+
+.process-card h3{
+
+position:relative;
+z-index:2;
+
+font-size:1.6rem;
+
+margin-bottom:18px;
+
+font-weight:800;
+
+}
+
+.process-card p{
+
+position:relative;
+z-index:2;
+
+color:rgba(255,255,255,.65);
+
+line-height:1.8;
+
+}
+
+/* ======================================
+   Footer
+====================================== */
+
+.step-footer{
+
+margin-top:auto;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding-top:30px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.step-footer span{
+
+padding:8px 16px;
+
+border-radius:999px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+font-size:.85rem;
+
+font-weight:600;
+
+color:rgba(255,255,255,.75);
+
+}
+
+.step-arrow{
+
+transition:.35s;
+
+color:rgba(255,255,255,.35);
+
+}
+
+.process-card:hover .step-arrow{
+
+transform:
+
+translateX(6px)
+
+translateY(-4px);
+
+color:var(--orange);
+
+}
+
+/* ======================================
+   Support Card
+====================================== */
+
+.support-card{
+
+margin-top:70px;
+
+display:flex;
+
+align-items:center;
+
+gap:28px;
+
+padding:40px;
+
+border-radius:24px;
+
+border:1px solid rgba(255,255,255,.08);
+
+background:
+
+linear-gradient(
+
+180deg,
+
+rgba(255,255,255,.05),
+
+rgba(255,255,255,.02)
+
+);
+
+}
+
+.support-card svg{
+
+color:var(--orange);
+
+flex-shrink:0;
+
+}
+
+.support-card h3{
+
+font-size:1.6rem;
+
+margin-bottom:10px;
+
+}
+
+.support-card p{
+
+color:rgba(255,255,255,.65);
+
+line-height:1.8;
+
+max-width:700px;
+
+}
+
+/* ======================================
+   Animation
+====================================== */
+
+@keyframes processGlow{
+
+0%{
+
+transform:translateX(-100%);
+
+}
+
+100%{
+
+transform:translateX(100%);
+
+}
+
+}
+
+/* ======================================
+   Responsive
+====================================== */
+
+@media(max-width:1100px){
+
+.process-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.process-section{
+
+padding:80px 0;
+
+}
+
+.process-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.process-card{
+
+min-height:auto;
+
+}
+
+.support-card{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+padding:30px;
+
+}
+
+.timeline-line{
+
+margin:50px 0;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.process-card{
+
+padding:24px;
+
+}
+
+.process-card h3{
+
+font-size:1.35rem;
+
+}
+
+.support-card h3{
+
+font-size:1.35rem;
+
+}
+
+.step-number{
+
+font-size:72px;
+
+}
+
+}

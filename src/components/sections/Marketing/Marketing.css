@@ -1,0 +1,462 @@
+.marketing-section {
+  position: relative;
+  width: 100%;
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.marketing-content {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: .95fr 1fr;
+  gap: clamp(40px, 7vw, 100px);
+  align-items: center;
+  width: 100%;
+}
+
+/* ===========================
+   VIDEO BACKGROUND
+=========================== */
+.marketing-bg-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.marketing-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  filter: saturate(0.85) contrast(1.1) brightness(0.9);
+}
+
+.marketing-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(to bottom, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.4) 50%, rgba(5, 5, 5, 0.95) 100%),
+    radial-gradient(circle at 50% 50%, transparent 30%, rgba(5, 5, 5, 0.8) 100%);
+  z-index: 2;
+}
+
+
+/* ===========================
+   LEFT SIDE
+=========================== */
+
+.section-copy h2 span {
+  background: linear-gradient(
+    120deg,
+    #ff8c00 0%,
+    #ffb347 25%,
+    #ff5f6d 50%,
+    #ffb347 75%,
+    #ff8c00 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: marketingSpanGradient 5s linear infinite;
+  display: inline-block;
+}
+
+@keyframes marketingSpanGradient {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+
+.section-copy p {
+  max-width: 580px;
+}
+
+.marketing-features {
+  display: grid;
+  gap: 16px;
+  margin: 36px 0;
+}
+
+.marketing-features div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 16px 20px;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  background: rgba(255,255,255,.03);
+
+  transition: .35s ease;
+}
+
+.marketing-features div:hover {
+  transform: translateX(10px);
+
+  border-color: rgba(255,140,0,.35);
+
+  background: rgba(255,140,0,.08);
+}
+
+.marketing-features svg {
+  color: var(--orange);
+}
+
+.marketing-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 18px;
+
+  padding: 16px 30px;
+
+  border: none;
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  color: #111;
+
+  background: linear-gradient(
+    90deg,
+    #ff8c00,
+    #ffb347
+  );
+
+  transition: .3s ease;
+}
+
+.marketing-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+  0 15px 40px rgba(255,140,0,.35);
+}
+
+.marketing-btn svg {
+  transition: .3s;
+}
+
+.marketing-btn:hover svg {
+  transform: translateX(5px);
+}
+
+/* ===========================
+   RIGHT SIDE
+=========================== */
+
+.analytics-cloud {
+  position: relative;
+  min-height: 640px;
+}
+
+/* orange glow */
+
+.dashboard-glow {
+  position: absolute;
+
+  width: 380px;
+  height: 380px;
+
+  left: 50%;
+  top: 45%;
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,140,0,.22),
+      transparent 70%
+    );
+
+  filter: blur(70px);
+
+  z-index: 0;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.analytics-card {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 14px;
+
+  width: 210px;
+  height: 160px;
+
+  padding: 26px;
+
+  border-radius: 22px;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  background:
+
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,.06),
+    rgba(255,255,255,.02)
+  );
+
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+  0 25px 60px rgba(0,0,0,.35);
+
+  transition:
+  .35s ease;
+
+  z-index: 2;
+
+  animation: floatCard 7s ease-in-out infinite;
+}
+
+.analytics-card:hover {
+  border-color: rgba(255,140,0,.4);
+
+  box-shadow:
+  0 20px 60px rgba(255,140,0,.18);
+}
+
+/* large */
+
+.analytics-card.large {
+  width: 270px;
+  height: 205px;
+}
+
+/* positions */
+
+.analytics-card.reach-card {
+  top: 0;
+  left: 0;
+}
+
+.analytics-card.top-right {
+  top: 82px;
+  right: 0;
+  animation-delay: -.8s;
+}
+
+.analytics-card.bottom-left {
+  bottom: 220px;
+  left: 42px;
+  animation-delay: -3.5s;
+}
+
+.analytics-card.bottom-right {
+  right: 0;
+  bottom: 200px;
+  animation-delay: -2.2s;
+}
+
+.metric-icon {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  color: var(--orange);
+
+  background: rgba(255,140,0,.1);
+
+  border: 1px solid rgba(255,140,0,.18);
+}
+
+.analytics-card strong {
+  font-size: 2.3rem;
+  font-weight: 800;
+
+  color: white;
+}
+
+.analytics-card span {
+  color: rgba(255,255,255,.65);
+
+  line-height: 1.5;
+}
+
+/* ===========================
+   SUMMARY CARD
+=========================== */
+
+.summary-card {
+  position: absolute;
+
+  left: 50%;
+  bottom: -10px;
+
+  transform: translateX(-50%);
+
+  width: 270px;
+
+  padding: 24px;
+
+  border-radius: 20px;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  background:
+
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,.06),
+    rgba(255,255,255,.02)
+  );
+
+  backdrop-filter: blur(20px);
+
+  text-align: center;
+
+  z-index: 3;
+}
+
+.summary-card small {
+  color: rgba(255,255,255,.5);
+
+  text-transform: uppercase;
+
+  letter-spacing: .08em;
+}
+
+.summary-card h3 {
+  margin: 10px 0;
+
+  font-size: 3rem;
+
+  color: var(--orange);
+}
+
+.summary-card p {
+  color: rgba(255,255,255,.65);
+
+  line-height: 1.6;
+}
+
+/* ===========================
+   FLOAT ANIMATION
+=========================== */
+
+@keyframes floatCard {
+
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width:1100px) {
+
+  .marketing-content {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+
+  .analytics-cloud {
+    min-height: 700px;
+  }
+
+}
+
+@media (max-width:768px) {
+
+  .marketing-section {
+    padding: 80px 0;
+  }
+
+  .analytics-cloud {
+
+    display: grid;
+
+    gap: 20px;
+
+    min-height: auto;
+  }
+
+  .dashboard-glow {
+    display: none;
+  }
+
+  .analytics-card,
+  .analytics-card.large,
+  .summary-card {
+
+    position: static;
+
+    transform: none;
+
+    width: 100%;
+    height: auto;
+
+    animation: none;
+  }
+
+  .summary-card h3 {
+    font-size: 2.5rem;
+  }
+
+}
+
+@media (max-width:480px) {
+
+  .marketing-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .marketing-features div {
+    padding: 14px 16px;
+  }
+
+  .analytics-card {
+    padding: 22px;
+  }
+
+  .analytics-card strong {
+    font-size: 2rem;
+  }
+
+}
+
+

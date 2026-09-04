@@ -1,0 +1,591 @@
+.services-section {
+  position: relative;
+  width: 100%;
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.services-content {
+  position: relative;
+  z-index: 3;
+}
+
+/* ==========================
+   VIDEO BACKGROUND
+========================== */
+.services-bg-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.services-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  filter: saturate(0.85) contrast(1.1) brightness(0.9);
+}
+
+.services-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(to bottom, rgba(5, 5, 5, 0.9) 0%, rgba(5, 5, 5, 0.4) 50%, rgba(5, 5, 5, 0.9) 100%),
+    radial-gradient(circle at 50% 50%, transparent 30%, rgba(5, 5, 5, 0.8) 100%);
+  z-index: 2;
+}
+
+
+.services-section .section-heading h2 {
+  background: linear-gradient(
+    120deg,
+    #ffffff 0%,
+    #ffb347 25%,
+    #ff8c00 50%,
+    #ffb347 75%,
+    #ffffff 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: servicesTitleGradient 6s linear infinite;
+}
+
+@keyframes servicesTitleGradient {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ==========================
+   CARD
+========================== */
+
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 560px;
+  padding: 32px;
+  overflow: hidden;
+
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.06),
+      rgba(255,255,255,.02)
+    );
+
+  backdrop-filter: blur(18px);
+
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+.service-card::before{
+  content:"";
+  position:absolute;
+  width:260px;
+  height:260px;
+  top:-80px;
+  right:-80px;
+
+  background:radial-gradient(
+    circle,
+    rgba(255,140,0,.35),
+    transparent 70%
+  );
+
+  opacity:0;
+  transition:.4s;
+}
+
+.service-card:hover::before{
+  opacity:1;
+}
+
+.service-card:hover{
+
+  border-color:rgba(255,140,0,.45);
+
+  box-shadow:
+  0 20px 60px rgba(255,140,0,.18);
+
+}
+
+/* ==========================
+   FEATURED CARD
+========================== */
+
+.featured-card{
+
+  border-color:rgba(255,140,0,.4);
+
+  box-shadow:
+  0 0 0 1px rgba(255,140,0,.15),
+  0 25px 60px rgba(255,140,0,.12);
+
+}
+
+.featured-card::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+
+180deg,
+
+rgba(255,140,0,.08),
+
+transparent 35%
+
+);
+
+pointer-events:none;
+
+}
+
+/* ==========================
+   POPULAR BADGE
+========================== */
+
+.popular-badge{
+
+position:absolute;
+
+top:22px;
+
+right:22px;
+
+padding:8px 16px;
+
+background:linear-gradient(
+90deg,
+#ff8c00,
+#ffb347
+);
+
+color:#111;
+
+font-size:.72rem;
+
+font-weight:800;
+
+border-radius:40px;
+
+letter-spacing:.08em;
+
+z-index:3;
+
+}
+
+/* ==========================
+   NUMBER
+========================== */
+
+.service-number{
+
+position:absolute;
+
+top:18px;
+
+right:24px;
+
+font-size:82px;
+
+font-weight:900;
+
+color:white;
+
+opacity:.04;
+
+line-height:1;
+
+pointer-events:none;
+
+}
+
+/* ==========================
+   ICON
+========================== */
+
+.service-icon{
+
+width:62px;
+
+height:62px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:18px;
+
+margin-bottom:30px;
+
+background:rgba(255,140,0,.1);
+
+border:1px solid rgba(255,140,0,.2);
+
+color:var(--orange);
+
+transition:.35s;
+
+}
+
+.service-card:hover .service-icon{
+
+transform:rotate(-8deg) scale(1.08);
+
+background:rgba(255,140,0,.18);
+
+}
+
+/* ==========================
+   TITLE
+========================== */
+
+.service-card h3{
+
+font-size:2rem;
+
+font-weight:800;
+
+line-height:1.08;
+
+margin-bottom:16px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.service-ideal{
+
+color:rgba(255,255,255,.72);
+
+font-size:1rem;
+
+line-height:1.7;
+
+margin-bottom:28px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+/* ==========================
+   FEATURES
+========================== */
+
+.service-features{
+
+display:grid;
+
+gap:14px;
+
+list-style:none;
+
+padding:0;
+
+margin:0 0 36px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.service-features li{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+font-size:.98rem;
+
+color:rgba(255,255,255,.82);
+
+}
+
+.service-features svg{
+
+color:var(--orange);
+
+flex-shrink:0;
+
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+.service-footer{
+
+margin-top:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:22px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+/* ==========================
+   DELIVERY
+========================== */
+
+.delivery{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:12px 16px;
+
+border-radius:14px;
+
+background:rgba(255,255,255,.04);
+
+border:1px solid rgba(255,255,255,.06);
+
+}
+
+.delivery span{
+
+font-size:.88rem;
+
+color:rgba(255,255,255,.55);
+
+}
+
+.delivery strong{
+
+font-size:.92rem;
+
+color:white;
+
+}
+
+/* ==========================
+   PRICE
+========================== */
+
+.price-box small{
+
+display:block;
+
+margin-bottom:6px;
+
+font-size:.8rem;
+
+letter-spacing:.08em;
+
+text-transform:uppercase;
+
+color:rgba(255,255,255,.45);
+
+}
+
+.price{
+
+font-size:1.65rem;
+
+font-weight:900;
+
+color:var(--orange);
+
+}
+
+/* ==========================
+   BUTTON
+========================== */
+
+.service-btn{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:10px;
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:14px;
+
+cursor:pointer;
+
+font-size:.96rem;
+
+font-weight:700;
+
+background:
+
+linear-gradient(
+90deg,
+#ff8c00,
+#ffb347
+);
+
+color:#111;
+
+transition:.3s;
+
+}
+
+.service-btn:hover{
+
+transform:translateY(-2px);
+
+box-shadow:
+
+0 15px 30px rgba(255,140,0,.35);
+
+}
+
+.service-btn svg{
+
+transition:.3s;
+
+}
+
+.service-btn:hover svg{
+
+transform:translateX(4px);
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width:1100px){
+
+.service-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media (max-width:768px){
+
+.services-section{
+
+padding:80px 0;
+
+}
+
+.service-grid{
+
+grid-template-columns:1fr;
+
+gap:22px;
+
+}
+
+.service-card{
+
+min-height:auto;
+
+padding:28px;
+
+}
+
+.service-card h3{
+
+font-size:1.7rem;
+
+}
+
+.service-number{
+
+font-size:70px;
+
+}
+
+}
+
+@media (max-width:480px){
+
+.service-card{
+
+padding:24px;
+
+}
+
+.service-icon{
+
+width:54px;
+
+height:54px;
+
+}
+
+.service-card h3{
+
+font-size:1.5rem;
+
+}
+
+.price{
+
+font-size:1.4rem;
+
+}
+
+.service-btn{
+
+padding:14px;
+
+}
+
+}

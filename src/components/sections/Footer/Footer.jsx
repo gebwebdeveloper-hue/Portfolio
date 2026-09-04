@@ -1,0 +1,215 @@
+import { motion } from 'framer-motion'
+import {
+  ArrowUpRight,
+  Mail,
+  MapPin,
+  Phone,
+} from 'lucide-react'
+
+import {
+  FaInstagram,
+  FaLinkedinIn,
+  FaBehance,
+  FaDribbble,
+  FaXTwitter,
+} from 'react-icons/fa6'
+
+import './Footer.css'
+
+function Footer() {
+  return (
+    <footer className="site-footer">
+
+      <div className="footer-glow"></div>
+
+      {/* ========================= */}
+      {/* TOP CTA */}
+      {/* ========================= */}
+
+      <motion.div
+        className="footer-hero"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+
+        <p>Let's build something unforgettable.</p>
+
+        <h2>
+          Ready to Grow
+          <span> Your Business?</span>
+        </h2>
+
+        <button className="footer-cta">
+          Start Your Project
+          <ArrowUpRight size={18} />
+        </button>
+
+      </motion.div>
+
+      {/* ========================= */}
+      {/* MAIN */}
+      {/* ========================= */}
+
+      <div className="footer-main">
+
+        {/* Brand */}
+
+        <div className="footer-brand">
+
+          <img
+            src="/WhatsApp Image 2026-07-05 at 12.31.20.jpeg"
+            alt="GenWeb Technologies"
+            className="footer-logo"
+          />
+
+          <h3>GenWeb Technologies</h3>
+
+          <p>
+            We build premium websites, e-commerce
+            platforms, branding systems and digital
+            experiences for ambitious businesses.
+          </p>
+
+        </div>
+
+        {/* Links */}
+
+        <div className="footer-column">
+
+          <h4>Company</h4>
+
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#process">Process</a>
+          <a href="#contact">Contact</a>
+          <a href="/admin/login" style={{ color: 'rgba(255, 140, 0, 0.75)' }}>Admin Portal</a>
+
+        </div>
+
+        {/* Services */}
+
+        <div className="footer-column">
+
+          <h4>Services</h4>
+
+          <a>Website Development</a>
+          <a>E-Commerce</a>
+          <a>UI / UX Design</a>
+          <a>Brand Identity</a>
+          <a>Digital Marketing</a>
+
+        </div>
+
+        {/* Contact */}
+
+        <div className="footer-column">
+
+          <h4>Contact</h4>
+
+          <a>
+            <Mail size={16} />
+            hello@genweb.tech
+          </a>
+
+          <a>
+            <Phone size={16} />
+            +91 XXXXX XXXXX
+          </a>
+
+          <a>
+            <MapPin size={16} />
+            Agartala, India
+          </a>
+
+          <div className="footer-social">
+
+            <a><FaInstagram /></a>
+
+            <a><FaLinkedinIn /></a>
+
+            <a><FaBehance /></a>
+
+            <a><FaDribbble /></a>
+
+            <a><FaXTwitter /></a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* ========================= */}
+      {/* NEWSLETTER */}
+      {/* ========================= */}
+
+      <div className="newsletter">
+
+        <div>
+
+          <h4>Stay Updated</h4>
+
+          <p>
+            Get occasional design insights,
+            updates and new case studies.
+          </p>
+
+        </div>
+
+        <div className="newsletter-form">
+
+          <input
+            type="email"
+            placeholder="Enter your email"
+          />
+
+          <button>
+
+            Subscribe
+
+          </button>
+
+        </div>
+
+      </div>
+
+      {/* ========================= */}
+      {/* BOTTOM */}
+      {/* ========================= */}
+
+      <div className="footer-bottom">
+
+        <p>
+          © 2026 GenWeb Technologies.
+          All Rights Reserved.
+        </p>
+
+        <button
+          className="back-top"
+          onClick={() =>
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth',
+            })
+          }
+        >
+
+          Back to Top ↑
+
+        </button>
+
+      </div>
+
+      <div className="footer-watermark">
+
+        GENWEB
+
+      </div>
+
+    </footer>
+  )
+}
+
+export default Footer

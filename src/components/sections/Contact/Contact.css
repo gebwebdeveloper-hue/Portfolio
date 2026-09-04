@@ -1,0 +1,192 @@
+.contact-section {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+  gap: clamp(28px, 6vw, 84px);
+  align-items: center;
+  padding: 108px 0 120px;
+}
+
+.world-map {
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle, rgba(255, 140, 0, 0.14), transparent 55%),
+    linear-gradient(90deg, transparent 49%, rgba(255, 255, 255, 0.08) 50%, transparent 51%),
+    linear-gradient(transparent 49%, rgba(255, 255, 255, 0.08) 50%, transparent 51%);
+  overflow: hidden;
+}
+
+.world-map svg {
+  width: 42%;
+  height: auto;
+  color: rgba(255, 140, 0, 0.55);
+  filter: drop-shadow(0 0 30px rgba(255, 140, 0, 0.35));
+}
+
+.world-map span {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 22px var(--orange);
+}
+
+.world-map span:nth-child(2) { top: 32%; left: 58%; }
+.world-map span:nth-child(3) { top: 48%; left: 36%; }
+.world-map span:nth-child(4) { top: 62%; left: 68%; }
+
+.contact-form {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.025));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.contact-form::before {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background: radial-gradient(circle at 80% 0%, rgba(255, 140, 0, 0.22), transparent 42%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.contact-form:hover::before { opacity: 1; }
+
+.contact-form label {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  background: rgba(5, 5, 5, 0.72);
+  padding: 14px 15px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form textarea {
+  min-height: 112px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  border-color: rgba(255, 140, 0, 0.72);
+  box-shadow: 0 0 0 4px rgba(255, 140, 0, 0.12);
+}
+
+.contact-form button {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 999px;
+  color: #050505;
+  background: var(--orange);
+  font-weight: 900;
+}
+
+@media (max-width: 1060px) {
+  .contact-section { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  .contact-section { padding-block: 70px; }
+  .world-map { min-height: 360px; }
+}
+
+.contact-success-box {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: 12px;
+  animation: fadeIn 0.3s ease;
+}
+
+.success-icon {
+  color: #4ade80;
+}
+
+.contact-success-box h3 {
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin: 0;
+}
+
+.contact-success-box p {
+  color: #d1d5db;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 440px;
+  margin: 0;
+}
+
+.submit-another-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.submit-another-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ff8c00;
+}
+
+.contact-error-box {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.btn-spinner {
+  animation: spin 1s linear infinite;
+}
+
