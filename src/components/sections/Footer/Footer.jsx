@@ -91,7 +91,6 @@ function Footer() {
           <a href="#portfolio">Portfolio</a>
           <a href="#process">Process</a>
           <a href="#contact">Contact</a>
-          <a href="/admin/login" style={{ color: 'rgba(255, 140, 0, 0.75)' }}>Admin Portal</a>
 
         </div>
 
