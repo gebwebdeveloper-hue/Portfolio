@@ -41,10 +41,16 @@ function Footer() {
           <span> Your Business?</span>
         </h2>
 
-        <button className="footer-cta">
+        <a
+          href="https://wa.me/918258892262?text=Hello%20GenWeb%20Technologies!%20I%20am%20ready%20to%20grow%20my%20business%20and%20would%20like%20to%20start%20a%20project%20with%20you."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-cta"
+          aria-label="Start your project with GenWeb Technologies on WhatsApp"
+        >
           Start Your Project
           <ArrowUpRight size={18} />
-        </button>
+        </a>
 
       </motion.div>
 
