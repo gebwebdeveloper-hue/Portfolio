@@ -12,6 +12,7 @@ import {
   FaBehance,
   FaDribbble,
   FaXTwitter,
+  FaWhatsapp,
 } from 'react-icons/fa6'
 
 import './Footer.css'
@@ -108,14 +109,14 @@ function Footer() {
 
           <h4>Contact</h4>
 
-          <a>
+          <a href="mailto:gebwebdeveloper@gmail.com" title="Send email to GenWeb Technologies">
             <Mail size={16} />
-            hello@genweb.tech
+            gebwebdeveloper@gmail.com
           </a>
 
-          <a>
+          <a href="tel:+918258892262" title="Call GenWeb Technologies">
             <Phone size={16} />
-            +91 XXXXX XXXXX
+            +91 82588 92262
           </a>
 
           <a>
@@ -124,6 +125,16 @@ function Footer() {
           </a>
 
           <div className="footer-social">
+
+            <a
+              href="https://wa.me/918258892262?text=Hello%20GenWeb%20Technologies%2C%20I%20would%20like%20to%20inquire%20about%20a%20project."
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Chat on WhatsApp"
+              style={{ color: '#25d366' }}
+            >
+              <FaWhatsapp size={16} />
+            </a>
 
             <a><FaInstagram /></a>
 

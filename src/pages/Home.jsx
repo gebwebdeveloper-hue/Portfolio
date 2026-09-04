@@ -16,6 +16,7 @@ import Testimonials from '../components/sections/Testimonials/Testimonials'
 import Process from '../components/sections/Process/Process'
 import Contact from '../components/sections/Contact/Contact'
 import Footer from '../components/sections/Footer/Footer'
+import WhatsAppButton from '../components/common/WhatsAppButton'
 import './Home.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -96,6 +97,7 @@ function Home() {
       <Process />
       <Contact />
       <Footer />
+      <WhatsAppButton />
     </main>
   )
 }
