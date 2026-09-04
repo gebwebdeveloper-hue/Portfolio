@@ -32,9 +32,35 @@ const features = [
   },
 ]
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.15,
+    },
+  },
+}
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+}
+
 function About() {
   return (
     <section id="about" className="about-section">
+
       <div className="about-bg-container">
         <img
           src="/ChatGPT Image Sep 4, 2026, 01_09_11 PM.png"
@@ -44,66 +70,89 @@ function About() {
         <div className="about-bg-overlay" />
       </div>
 
+      {/* Ambient glow */}
+      <div className="about-ambient about-ambient-one" />
+      <div className="about-ambient about-ambient-two" />
+
       <div className="about-content section-shell">
+
         <motion.div
-          className="section-copy"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          className="about-copy"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
         >
-          <p className="eyebrow">
+
+          <motion.p
+            variants={itemVariants}
+            className="about-eyebrow"
+          >
             <Globe2 size={15} />
             About GenWeb Technologies
-          </p>
+          </motion.p>
 
-          <h2>
-            We craft digital experiences that make businesses impossible to
-            ignore.
-          </h2>
+          <motion.h2 variants={itemVariants}>
+            We craft digital experiences that make businesses{' '}
+            <span>impossible to ignore.</span>
+          </motion.h2>
 
-          <p className="about-description">
+          <motion.p
+            variants={itemVariants}
+            className="about-description"
+          >
             At <strong>GenWeb Technologies</strong>, we combine strategy,
             creativity, and cutting-edge development to build websites that
             don't just look beautiful—they generate trust, engagement, and
             measurable business growth. Every interaction is designed with
             precision to deliver a premium experience for your audience.
-          </p>
+          </motion.p>
 
-          <div className="feature-grid">
+          <motion.div
+            variants={containerVariants}
+            className="feature-grid"
+          >
             {features.map(({ title, desc, icon: Icon }) => (
               <motion.div
                 key={title}
+                variants={itemVariants}
                 className="feature-card"
                 whileHover={{
                   y: -8,
-                  scale: 1.02,
+                  scale: 1.015,
                 }}
-                transition={{ duration: 0.25 }}
-                data-cursor="card"
               >
+
                 <div className="feature-icon">
-                  <Icon size={22} />
+                  <Icon size={21} />
                 </div>
 
-                <div>
+                <div className="feature-content">
                   <h4>{title}</h4>
                   <p>{desc}</p>
                 </div>
+
+                <div className="feature-arrow">
+                  <ArrowRight size={16} />
+                </div>
+
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           <motion.a
+            variants={itemVariants}
             href="#contact"
             className="about-btn"
-            whileHover={{ x: 6 }}
-            whileTap={{ scale: 0.96 }}
+            whileHover={{ y: -3 }}
+            whileTap={{ scale: 0.97 }}
           >
-            Let's Build Something Great
+            <span>Let's Build Something Great</span>
             <ArrowRight size={18} />
           </motion.a>
+
         </motion.div>
+
       </div>
     </section>
   )

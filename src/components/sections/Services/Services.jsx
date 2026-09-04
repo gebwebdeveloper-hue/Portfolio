@@ -77,6 +77,9 @@ function Services() {
         <div className="service-grid">
           {services.map((service, index) => {
             const Icon = icons[service.icon]
+            const whatsappUrl = `https://wa.me/918258892262?text=${encodeURIComponent(
+              `Hello GenWeb Technologies! I would like to inquire about the "${service.title}" package (${service.price}). Please let me know how to get started.`
+            )}`
 
             return (
               <motion.article
@@ -143,10 +146,16 @@ function Services() {
                     </div>
                   </div>
 
-                  <button className="service-btn">
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="service-btn"
+                    aria-label={`Inquire about ${service.title} on WhatsApp`}
+                  >
                     Get Started
                     <ArrowRight size={18} />
-                  </button>
+                  </a>
 
                 </div>
               </motion.article>
