@@ -18,6 +18,7 @@ function Header({ navOpen, setNavOpen }) {
 
   return (
     <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
+      <div className="navbar-glow-track" aria-hidden="true" />
       
       <a className="brand" href="#top" aria-label="GenWeb Technologies home">
         <img
