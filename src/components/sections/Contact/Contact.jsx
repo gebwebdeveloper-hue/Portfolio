@@ -65,15 +65,26 @@ function Contact() {
   }
 
   return (
-    <section id="contact" className="contact-section section-shell">
-      <div className="world-map" data-reveal>
-        <Globe2 />
-        <span />
-        <span />
-        <span />
+    <section id="contact" className="contact-section">
+      <div className="contact-bg-container">
+        <img
+          src="/ChatGPT Image Sep 4, 2026, 09_06_44 PM.png"
+          alt="GenWeb Contact Background"
+          className="contact-bg-image"
+          loading="lazy"
+        />
+        <div className="contact-bg-overlay" />
       </div>
 
-      <form className="contact-form" data-reveal onSubmit={handleSubmit}>
+      <div className="contact-wrapper section-shell">
+        <div className="world-map" data-reveal>
+          <Globe2 />
+          <span />
+          <span />
+          <span />
+        </div>
+
+        <form className="contact-form" data-reveal onSubmit={handleSubmit}>
         <p className="eyebrow">
           <Mail size={15} /> Start a project
         </p>
@@ -164,6 +175,7 @@ function Contact() {
           </>
         )}
       </form>
+      </div>
     </section>
   )
 }
