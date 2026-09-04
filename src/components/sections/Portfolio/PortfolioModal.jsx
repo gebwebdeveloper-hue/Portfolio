@@ -162,9 +162,12 @@ function PortfolioModal({ project, onClose }) {
                       Visit Live Platform <ExternalLink size={16} />
                     </a>
                     <a
-                      href="#contact"
+                      href={`https://wa.me/918258892262?text=${encodeURIComponent(
+                        `Hello GenWeb Technologies! I saw the "${project.title}" project in your portfolio and I would like to build a similar solution for my business.`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="modal-cta-secondary"
-                      onClick={onClose}
                     >
                       Build Similar Solution <ArrowRight size={16} />
                     </a>
